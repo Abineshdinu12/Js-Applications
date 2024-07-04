@@ -2,7 +2,7 @@ function renderProducts(products) {
   const productList = document.getElementById("productList");
   productList.innerHTML = "";
 
-  products.map((product, index) => {
+  products.forEach((product, index) => {
     const card = document.createElement("div");
     card.classList.add("col-md-3", "mb-4");
     card.innerHTML = `
@@ -10,7 +10,6 @@ function renderProducts(products) {
         <div class="card-body">
           <h5 class="card-title">${product.productName}</h5>
           <p class="card-text">Price: ₹${product.productPrice}</p>
-          
           <button class="btn btn-primary addToCart" data-index="${index}">Add To Cart</button>
         </div>
       </div>
@@ -22,26 +21,18 @@ function renderProducts(products) {
   addToCartButtons.forEach((button) => {
     button.addEventListener("click", function () {
       const index = parseInt(this.getAttribute("data-index"));
-      const quantity = parseInt(document.getElementById(`quantityInput${index}`).value);
-      const selectedProduct = { ...products[index], quantity };
+      const selectedProduct = products[index];
       addToCart(selectedProduct);
       navigateToCart();
     });
   });
 }
 
-
 function addToCart(product) {
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-  const existingIndex = cartItems.findIndex(item => item.productName === product.productName);
-  if (existingIndex !== -1) {
-    cartItems[existingIndex].quantity += product.quantity;
-  } else {
-    cartItems.push(product);
-  }
+  cartItems.push(product); 
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
 }
-
 
 function navigateToCart() {
   window.location.href = "cart.html";
@@ -56,6 +47,3 @@ document.getElementById("searchInput").addEventListener("input", function () {
   );
   renderProducts(filteredProducts);
 });
-
-
-
