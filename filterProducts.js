@@ -12,8 +12,10 @@ function renderProducts(products) {
           <h5 class="card-title">${product.productName}</h5>
           <p class="card-text">Price: ${product.productPrice}</p>
           <p class="card-text">Quantity: ${product.productQuantity}</p>
+                <button class= btn-primary> Add To Cart</button>
         </div>
       </div>
+ 
     `;
     
     productList.appendChild(card);
