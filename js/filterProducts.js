@@ -10,7 +10,7 @@ function renderProducts(products) {
         <div class="card-body">
           <h5 class="card-title">${product.productName}</h5>
           <p class="card-text">Price: ₹${product.productPrice}</p>
-          <p class="card-text">Quantity: ${product.productQuantity}</p>
+          
           <button class="btn btn-primary addToCart" data-index="${index}">Add To Cart</button>
         </div>
       </div>
@@ -22,17 +22,26 @@ function renderProducts(products) {
   addToCartButtons.forEach((button) => {
     button.addEventListener("click", function () {
       const index = parseInt(this.getAttribute("data-index"));
-      addToCart(products[index]);
+      const quantity = parseInt(document.getElementById(`quantityInput${index}`).value);
+      const selectedProduct = { ...products[index], quantity };
+      addToCart(selectedProduct);
       navigateToCart();
     });
   });
 }
 
+
 function addToCart(product) {
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-  cartItems.push(product);
+  const existingIndex = cartItems.findIndex(item => item.productName === product.productName);
+  if (existingIndex !== -1) {
+    cartItems[existingIndex].quantity += product.quantity;
+  } else {
+    cartItems.push(product);
+  }
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
 }
+
 
 function navigateToCart() {
   window.location.href = "cart.html";
@@ -47,5 +56,6 @@ document.getElementById("searchInput").addEventListener("input", function () {
   );
   renderProducts(filteredProducts);
 });
+
 
 
