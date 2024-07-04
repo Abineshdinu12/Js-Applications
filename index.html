@@ -4,24 +4,55 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product Search</title>
-
     <link
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <style>
+      .icon {
+        position: fixed;
+        top: 20px;
+        font-size: 24px;
+        color: #333;
+        cursor: pointer;
+      }
+      .shopping-cart-icon {
+        right: 15px;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
-      <h1 class="mt-4">Product Search</h1>
-      <input
-        type="text"
-        id="searchInput"
-        class="form-control my-4"
-        placeholder="Search products..."
-      />
-      <div id="productList" class="row"></div>
+      <header>
+        <h1 class="mt-4">Product Search</h1>
+        <input
+          type="text"
+          id="searchInput"
+          class="form-control my-4"
+          placeholder="Search products..."
+        />
+        <!-- Shopping cart -->
+        <div id="cart">
+          <h3>Shopping Cart</h3>
+
+          <ul id="cartList"></ul>
+        </div>
+        <!-- Product list -->
+        <div id="productList" class="row"></div>
+      </header>
     </div>
 
+    <!-- Shopping cart icon using Font Awesome -->
+    <div class="icon shopping-cart-icon">
+      <a href="cart.html" class="text-dark">
+        <i class="fas fa-shopping-cart"></i>
+      </a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script src="object.js"></script>

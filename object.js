@@ -17,5 +17,5 @@ const orders = [
   { orderedProduct: "I Phone", price: 150, quantity: 2 },
 ];
 
-const cart = [products, orders];
+const data = [products, orders];
 // export default cart;
