@@ -9,10 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
-    // Show modal if cart is empty
+
     if (cartItems.length === 0) {
-      $('#emptyCartModal').modal('show'); // jQuery method to show Bootstrap modal
-      return; // Exit renderCart function if cart is empty
+      $('#emptyCartModal').modal('show');
+      return; 
     }
 
     cartItems.forEach((item) => {
