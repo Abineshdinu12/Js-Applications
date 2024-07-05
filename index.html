@@ -8,49 +8,63 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="css/index.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
-    <style>
-      .icon {
-        position: fixed;
-        top: 20px;
-        font-size: 24px;
-        color: #333;
-        cursor: pointer;
-      }
-      .shopping-cart-icon {
-        right: 15px;
-      }
-    </style>
   </head>
   <body>
-    <div class="container">
-      <header>
-        <h1 class="mt-4">Product Search</h1>
-        <input
-          type="text"
-          id="searchInput"
-          class="form-control my-4"
-          placeholder="Search products..."
-        />
-        <div id="cart">
-          <h3>Shopping Cart</h3>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Product Search</a>
 
+        <!-- Navbar icons -->
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="cart.html">
+              <i class="fas fa-shopping-cart"></i>
+              Cart
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="orders.html">
+              <i class="fas fa-truck"></i>
+              Orders
+            </a>
+          </li>
+        </ul>
+
+        <!-- Product search input -->
+        <form class="form-inline my-2 my-lg-0">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search products..."
+            aria-label="Search"
+            id="searchInput"
+          />
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Search
+          </button>
+        </form>
+      </div>
+    </nav>
+
+    <div class="container">
+      <!-- Content -->
+      <div class="content">
+        <h3>Product Search</h3>
+        <div id="cart">
           <ul id="cartList"></ul>
         </div>
         <div id="productList" class="row"></div>
-      </header>
+      </div>
     </div>
-    <div class="icon shopping-cart-icon">
-      <a href="cart.html" class="text-dark">
-        <i class="fas fa-shopping-cart"></i>
-      </a>
-    </div>
+
+    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
     <script src="js/object.js"></script>
     <script src="js/filterProducts.js"></script>
   </body>

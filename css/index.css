@@ -1,0 +1,24 @@
+body {
+    padding-top: 30px; 
+  }
+.navbar .icon {
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    margin-left: 15px;
+  }
+  .navbar .shopping-cart-icon {
+    margin-right: 15px;
+  }
+  .navbar .form-control {
+    width: 300px;
+    margin-left: auto;
+    margin-right: 15px;
+  }
+  .content h3{
+    margin-top: 40px;
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+ 
