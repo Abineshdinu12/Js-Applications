@@ -9,6 +9,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
+    // Show modal if cart is empty
+    if (cartItems.length === 0) {
+      $('#emptyCartModal').modal('show'); // jQuery method to show Bootstrap modal
+      return; // Exit renderCart function if cart is empty
+    }
+
     cartItems.forEach((item) => {
       const quantity = item.quantity || 1;
       const productPrice = item.productPrice;
@@ -59,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
           <input type="checkbox" class="select-checkbox" data-product='${JSON.stringify(
             item
-          )}'> Select to Buy
+          )}'> Select to Buy Or Remove
         </div>
       `;
 
